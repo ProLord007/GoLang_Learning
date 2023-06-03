@@ -2,18 +2,13 @@ package main
 
 import "fmt"
 
+func first() {
+	fmt.Println("1st")
+}
+func second() {
+	fmt.Println("2nd")
+}
 func main() {
-	elements := make(map[string]string)
-	elements["H"] = "Hydrogen"
-	elements["He"] = "Helium"
-	elements["Li"] = "Lithium"
-	elements["Be"] = "Beryllium"
-	elements["B"] = "Boron"
-	elements["C"] = "Carbon"
-	elements["N"] = "Nitrogen"
-	elements["O"] = "Oxygen"
-	elements["F"] = "Fluorine"
-	elements["Ne"] = "Neon"
-	name, ok := elements["Su"]
-	fmt.Println(name, ok)
+	defer second()
+	first()
 }
