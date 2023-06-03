@@ -16,9 +16,12 @@ func f(n int) bool {
 	}
 	return true
 }
-
 func main() {
-	var b int = 5
-	fmt.Scanf("%d", &b)
-	fmt.Println(f(b))
+	arr := []int{1, 2, 3, 4, 5}
+	fmt.Println("Enter 5 integers:")
+	arr = append(arr, 2, 3, 4, 5, 6, 7, 989, 0)
+	fmt.Println("Array elements are:")
+	for i := 0; i < len(arr); i++ {
+		fmt.Println(arr[i])
+	}
 }
