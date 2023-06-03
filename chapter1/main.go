@@ -9,6 +9,9 @@ func f() {
 func main() {
 	var a string = "asdf"
 	var b int = 5
-	fmt.Println(a, b)
+	var c float64
+	b1 := 3.5
+	fmt.Scanf("%f", &c)
+	fmt.Println(a, b, b1, c)
 	f()
 }
