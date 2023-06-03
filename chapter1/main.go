@@ -1,17 +1,30 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
+	"sort"
 )
 
-func main() {
-	var x list.List
-	x.PushBack(1)
-	x.PushBack(2)
-	x.PushBack(3)
+type Person struct {
+	Name string
+	Age  int
+}
+type ByName []Person
 
-	for e := x.Front(); e != nil; e = e.Next() {
-		fmt.Println(e.Value)
+func (ps ByName) Len() int {
+	return len(ps)
+}
+func (ps ByName) Less(i, j int) bool {
+	return ps[i].Name < ps[j].Name
+}
+func (ps ByName) Swap(i, j int) {
+	ps[i], ps[j] = ps[j], ps[i]
+}
+func main() {
+	kids := []Person{
+		{"Jill", 9},
+		{"Jack", 10},
 	}
+	sort.Sort(ByName(kids))
+	fmt.Println(kids)
 }
