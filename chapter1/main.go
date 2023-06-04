@@ -2,29 +2,15 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	"hash/crc32"
 )
 
-type Person struct {
-	Name string
-	Age  int
-}
-type ByName []Person
-
-func (ps ByName) Len() int {
-	return len(ps)
-}
-func (ps ByName) Less(i, j int) bool {
-	return ps[i].Name < ps[j].Name
-}
-func (ps ByName) Swap(i, j int) {
-	ps[i], ps[j] = ps[j], ps[i]
-}
 func main() {
-	kids := []Person{
-		{"Jill", 9},
-		{"Jack", 10},
-	}
-	sort.Sort(ByName(kids))
-	fmt.Println(kids)
+	// create a hasher
+	h := crc32.NewIEEE()
+	// write our data to it
+	h.Write([]byte("test"))
+	// calculate the crc32 checksum
+	v := h.Sum32()
+	fmt.Println(v)
 }
